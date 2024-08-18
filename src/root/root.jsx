@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import "./style.css";
+// Root component
+import React, { useState } from "react";
 import { RootContainer } from "./styled";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "../pages/home/home";
@@ -8,42 +8,31 @@ import Login from "../pages/login";
 import Sidebar from "../components/Sidebar";
 import sidebar from "../utils/sidebar";
 import { Toaster } from "react-hot-toast";
-import CheckUser from "../hooks/useCheckUser";
+import useAuthRedirect from "../hooks/useAuthRedirect";
 
-let init = 0;
 const Root = () => {
-  const { isUser } = CheckUser();
-
-  useEffect(() => {
-    if (init == 0 && isUser() === false) {
-      nav("/login");
-      console.log("2");
-    }
-    init = 1;
-  });
+  const [isAuthChecking, setIsAuthChecking] = useState(true);
 
   const nav = useNavigate();
-  if (init == 0 && isUser() === false) {
-    console.log("3");
+  useAuthRedirect(setIsAuthChecking);
+
+  if (isAuthChecking) {
+    nav("/login");
     return (
-      <>
-        <RootContainer>
-          <Login></Login>
-          <Toaster />
-        </RootContainer>
-      </>
+      <div className="loaderWindow">
+        <div className="loader"></div>
+      </div>
     );
   }
+
   return (
     <>
       <RootContainer>
-        {/* <Navbar /> */}
         <Sidebar />
         <div>
           <Navbar />
           <Routes>
             <Route path="/login" element={<Login />} />
-
             {sidebar.map((v) => {
               if (v.children?.length > 0) {
                 return v.children.map((child) => {
@@ -58,18 +47,14 @@ const Root = () => {
               }
               return <Route key={v.id} path={v.path} element={v.element} />;
             })}
-
             <Route path="/" element={<Home />} />
             <Route path="*" element={<h1>Not found</h1>} />
           </Routes>
         </div>
       </RootContainer>
-
       <Toaster />
     </>
   );
 };
 
 export default Root;
-
-[{ name: "Mahsulotlar" }, { name: "Hisobotlar" }];

@@ -6,23 +6,16 @@ import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import text from "../../mock/text";
 import useGetCollections from "../../hooks/useCollections";
 import getNotify from "../../hooks/useNotify";
-import CheckUser from "../../hooks/useCheckUser";
 
+let init = 0;
 const Login = () => {
   const [loader, setloader] = useState(0);
   const { loading, markets } = useGetCollections();
   const { notify } = getNotify();
-  const { isUser } = CheckUser();
 
   const UsernameRef = useRef({});
   const PassRef = useRef({});
   const nav = useNavigate();
-
-  useEffect(() => {
-    if (isUser() === true) {
-      nav("/");
-    }
-  }, []);
 
   const checkUser = async () => {
     setloader(1);
@@ -57,13 +50,6 @@ const Login = () => {
     }
 
     setloader(0);
-  };
-
-  // getUsers - ma'lumotlarni olib keluvchi funksiyangiz bo'lishi kerak
-  const getUsers = async () => {
-    // Bu yerda ma'lumotlarni olish logikasi bo'lishi kerak
-    // Masalan:
-    // return fetch('/api/users').then(response => response.json());
   };
 
   return (
