@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   Arrow,
-  Body,
   ChildWrapper,
   Container,
   Exit,
@@ -111,8 +110,8 @@ const Sidebar = () => {
           Chiqish
         </LogOut>
       </Side>
-
-      {/* <Body>
+      {/* 
+      <Body>
         <Navbar />
         <Wrapper>
           <BroadCrumb />

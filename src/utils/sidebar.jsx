@@ -29,8 +29,8 @@ const sidebar = [
   },
   {
     id: 2,
-    title: "Lidlar", // buyurtma
-    path: "/lidlar",
+    title: "Hisobotlar", // buyurtma
+    path: "/hisobot",
     isPrivate: true,
     icon: arrow,
     element: <h1>home</h1>,
@@ -38,24 +38,24 @@ const sidebar = [
     children: [
       {
         id: `2-1`,
-        title: "Barcha Lidlar",
-        path: "/lidlar/all-lids",
+        title: "Kunlik hisobotlar",
+        path: "/hisobot/kunlik",
         isPrivate: true,
         element: <h1>home</h1>,
         role: ["admin", "manager"],
       },
       {
         id: `2-2`,
-        title: "Birinchi Dars",
-        path: "/lidlar/first-class",
+        title: "Oylik Hisobotlar",
+        path: "/hisobot/monthly",
         isPrivate: true,
         element: <h1>home</h1>,
         role: ["admin", "manager"],
       },
       {
         id: `2-3`,
-        title: "Yangi Talabalar",
-        path: "/lidlar/new-students",
+        title: "Analiktika",
+        path: "/hisobot/analiktik",
         isPrivate: true,
         element: <h1>home</h1>,
         role: ["admin", "manager"],

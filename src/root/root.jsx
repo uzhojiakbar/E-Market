@@ -29,7 +29,7 @@ const Root = () => {
     <>
       <RootContainer>
         <Sidebar />
-        <div>
+        <div className="body">
           <Navbar />
           <Routes>
             <Route path="/login" element={<Login />} />

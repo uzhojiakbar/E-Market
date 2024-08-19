@@ -10,9 +10,12 @@ const Products = () => {
   const getProduct = async () => {
     if ((await allProducts.length) === 0) {
       setLoading(1);
-      await axios.get("http://localhost:4000/api/products").then((respone) => {
-        setAllProducts(respone.data);
-      });
+      // await axios.get("http://localhost:4000/api/products").then((respone) => {
+      //   setAllProducts(respone.data);
+      // });
+
+      setAllProducts([{}]);
+
       setLoading(0);
       return 1;
     }

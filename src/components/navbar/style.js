@@ -2,17 +2,26 @@ import styled from "styled-components";
 
 import search from "../../assets/icons/search.svg?react";
 
+// const currentWidth = `${window.innerWidth}px`;
+
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   height: 63px;
-  position: sticky;
-  top: 0;
+  width: calc(${(props) => props.currentWidth} - 280px);
+  min-width: 800px;
+  max-width: calc(1920px - 280px);
 
   padding: 0 16px 0 24px;
   background-color: white;
+  gap: 20px;
+`;
+
+Container.Right = styled.div`
+  display: flex;
+  gap: 20px;
 `;
 
 const InputWrapper = styled.div`

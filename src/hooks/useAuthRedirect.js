@@ -13,8 +13,15 @@ const useAuthRedirect = (setIsAuthChecking) => {
       const isAuthenticated = markets.some((market) => market.id === userToken); // Tokenni tekshirish
 
       if (isAuthenticated) {
-        navigate("/"); // Agar token markets arraydagi biror bir idga mos kelsa, asosiy sahifaga yo'naltiring
+        // Agar token markets arraydagi biror bir idga mos kelsa, asosiy sahifaga yo'naltiring
+        if (location.pathname === "/login") {
+          navigate(localStorage.getItem("next") || "/");
+          localStorage.removeItem("next");
+        }
       } else {
+        if (location.pathname !== "/login") {
+          localStorage.setItem("next", document.location.pathname);
+        }
         navigate("/login"); // Aks holda, login sahifasida qoladi
       }
 

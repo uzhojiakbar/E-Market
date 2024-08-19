@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
+  position: sticky;
+  left: 0;
 `;
 const Side = styled.div`
   display: flex;
@@ -17,6 +19,7 @@ const Side = styled.div`
   height: 100vh;
   overflow: hidden;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 0;
   }
@@ -57,6 +60,7 @@ const LogOut = styled.div`
   font-weight: 500;
   line-height: 28px;
   color: #253e5f;
+  background-color: #f8fafc;
 
   border-top: 1px solid #f8fafc;
   cursor: pointer;
@@ -116,6 +120,7 @@ ProfileContainer.Email = styled.h2`
 const Menu = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 `;
 
 const MenuItem = styled(NavLink)`

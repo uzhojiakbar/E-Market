@@ -3,7 +3,7 @@ import { ProfileContainer } from "./style";
 import noimg from "../../assets/images/noUser.webp";
 
 const users = [
-  { name: "Davr Leader", gmail: "davr.leader@gmail.com", img: noimg },
+  { name: "E-Market Admin", email: "e-market@gmail.com", img: noimg },
 ];
 const Profile = () => {
   const [user] = users;
